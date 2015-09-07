@@ -65,15 +65,15 @@ function add_dev
     # http://wiki.libvirt.org/page/Networking
     cat > /tmp/passthrough-${pf}.xml <<EOF
 <network>
-  <name>passthrough</name>
+  <name>passthrough-$pf</name>
   <forward mode='hostdev' managed='yes'>
     <pf dev='$pf'/>
   </forward>
 </network>
 EOF
     virsh net-define /tmp/passthrough-${pf}.xml
-    virsh net-autostart passthrough
-    virsh net-start passthrough
+    virsh net-autostart passthrough-$pf
+    virsh net-start passthrough-$pf
 }
 
 
@@ -83,5 +83,7 @@ if [ -z $pf ]; then
 fi
 
 check_mod
-# create_vf
+create_vf
 add_dev
+# sr-iov added, use it by
+# virsh attach-interface --config --source passthrough-<iface> --type network --domain <domain name>

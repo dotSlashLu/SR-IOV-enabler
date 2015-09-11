@@ -1,0 +1,16 @@
+SR-IOV enabler
+
+This script creates SR-IOV virtual functions on specified interface and creates
+a network in libvirt which will later expand to various virtual functions. It
+was written specically for interfaces drived by igb mod(Intel 82575/6, 82580,
+I350, and I210/211-Based Gigabit Network Connections, full list at [1]). But
+with a little revise you can adapt it to your interface with different driver.
+For revising, see [2], [3].
+
+Usage: sr-iov-enable.sh <physical function>
+
+[1]: https://downloadcenter.intel.com/download/13663/Network-Adapter-Driver-for-82575-6-82580-I350-and-I210-211-Based-Gigabit-Network-Connections-for-Linux-
+
+[2]: http://wiki.libvirt.org/page/Networking#Assignment_with_.3Cinterface_type.3D.27hostdev.27.3E_.28SRIOV_devices_only.29
+
+[3]: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Virtualization_Host_Configuration_and_Guest_Installation_Guide/sect-Virtualization_Host_Configuration_and_Guest_Installation_Guide-SR_IOV-How_SR_IOV_Libvirt_Works.html

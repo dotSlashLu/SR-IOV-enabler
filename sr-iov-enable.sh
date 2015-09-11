@@ -1,8 +1,10 @@
 #!/bin/bash
-
-## NOTE
-## when creating vf, the NIC driver need to be restarted
-## the network may be lost temporarily
+#
+# Author: dotslash.lu <dotslash.lu@gmail.com>
+#
+# NOTE
+# when creating vf, the NIC driver need to be restarted
+# the network may be lost temporarily
 
 pf=$1
 
@@ -62,7 +64,6 @@ function create_vf
 
 function add_dev
 {
-    # http://wiki.libvirt.org/page/Networking
     cat > /tmp/passthrough-${pf}.xml <<EOF
 <network>
   <name>passthrough-$pf</name>
@@ -85,5 +86,6 @@ fi
 check_mod
 create_vf
 add_dev
+
 # sr-iov added, use it by
 # virsh attach-interface --config --source passthrough-<iface> --type network --domain <domain name>

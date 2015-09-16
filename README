@@ -4,8 +4,8 @@ This script creates SR-IOV virtual functions on specified interface and creates
 a network in libvirt which will later expand to various virtual functions. It
 was written specically for interfaces drived by igb mod(Intel 82575/6, 82580,
 I350, and I210/211-Based Gigabit Network Connections, full list at [1]). But
-with a little revise you can adapt it to your interface with different driver.
-For revising, see [2], [3].
+with a little revise you can adapt it to your interface with a different
+driver.  For revising, see [2], [3].
 
 Usage: sr-iov-enable.sh <physical function>
 

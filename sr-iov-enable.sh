@@ -25,6 +25,7 @@ function check_iommu
         echo iommu not enabled, enabling and reboot
         sed -i '/\s*kernel/s/$/ intel_iommu=on/' /boot/grub/grub.conf
         reboot
+        exit 1
     else
         echo OK
     fi
